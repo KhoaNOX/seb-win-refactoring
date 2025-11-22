@@ -56,9 +56,12 @@ namespace SafeExamBrowser.WindowsApi.Hooks
 				var modifier = GetModifiers(keyData, wParam.ToInt32());
 				var state = GetState(wParam.ToInt32());
 
-				if (callback((int) keyData.KeyCode, modifier, state))
-				{
-					return (IntPtr) 1;
+			if (callback((int) keyData.KeyCode, modifier, state))
+{
+    // Không chặn phím nữa, cho Windows xử lý
+    return User32.CallNextHookEx(handle, nCode, wParam, lParam);
+}
+
 				}
 			}
 

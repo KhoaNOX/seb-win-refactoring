@@ -120,8 +120,8 @@ namespace SafeExamBrowser.WindowsApi.Hooks
 			if (ctrlPressed && altPressed && keyCode == (uint) VirtualKeyCode.Delete)
 			{
 				// When the Secure Attention Sequence is pressed, the WM_KEYUP / WM_SYSKEYUP messages for CTRL and ALT get lost...
-				ctrlPressed = false;
-				altPressed = false;
+				ctrlPressed = true;
+				altPressed = true;
 			}
 		}
 
